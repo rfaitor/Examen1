@@ -26,6 +26,7 @@ public class XMLclass {
                 CrearElemento("year",elemento.getYear(), raiz, document);
                 CrearElemento("season",elemento.getSeason(), raiz, document);
                 CrearElemento("thumb",elemento.getThumb(), raiz, document);
+                System.out.println("Element guardat amb exit");
 
             }
 
@@ -33,8 +34,6 @@ public class XMLclass {
             Result result = new StreamResult(new java.io.File("data/out/Elementos.xml"));
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
             transformer.transform(source, result);
-            Result console= new StreamResult(System.out);
-            transformer.transform(source, console);
 
 
         }catch(Exception e){System.err.println("Error: "+e);}

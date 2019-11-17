@@ -46,11 +46,11 @@ public class Main {
                     try {
                         llistaElemento.add(new Elemento(id, year, season, thumb));
                         System.out.println("l'element ha sigut afegit amb exit");
+                        System.out.println("Presiona enter per continuar");
                     }catch (Exception e) {
                         System.err.println(e.getMessage());
+                        System.out.println("Presiona enter per continuar");
                     }
-
-                    System.out.println("Presiona enter per continuar");
                     scanner.nextLine();
                     scanner.nextLine();
                     break;
@@ -60,7 +60,10 @@ public class Main {
                     while (iterator.hasNext()){
                         System.out.println(iterator.next());
                     }
-                    System.out.println();
+                    System.out.println("----------------------------------------");
+                    System.out.println("Presiona enter per continuar");
+                    scanner.nextLine();
+                    scanner.nextLine();
                     break;
                 case 3:
                     try {
@@ -68,19 +71,35 @@ public class Main {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                    System.out.println("Presiona enter per continuar");
+                    scanner.nextLine();
+                    scanner.nextLine();
                     break;
                 case 4:
                     xmLclass.EscriureXML(llistaElemento.getLlistaelemento());
+                    System.out.println("Presiona enter per continuar");
+                    scanner.nextLine();
+                    scanner.nextLine();
                     break;
                 case 5:
                     try {
+                        System.out.println("----------Dades del arxiu Binari---------");
                         binariclass.llegirBinari();
+                        System.out.println("----------------------------------------");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                    System.out.println("Presiona enter per continuar");
+                    scanner.nextLine();
+                    scanner.nextLine();
                     break;
                 case 6:
+                    System.out.println("----------Dades del arxiu XML---------");
                     xmLclass.LlegirXml();
+                    System.out.println("----------------------------------------");
+                    System.out.println("Presiona enter per continuar");
+                    scanner.nextLine();
+                    scanner.nextLine();
                     break;
             }
 

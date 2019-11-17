@@ -23,7 +23,6 @@ public class Elemento implements Serializable {
 
         } catch (ParseException e) {
             throw new Exception("Has introduit malament la data (\"yyyy/MM\")");
-
         }
 
 

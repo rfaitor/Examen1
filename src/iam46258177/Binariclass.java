@@ -13,15 +13,14 @@ public class Binariclass {
         LlistaElemento llistaElemento = new LlistaElemento();
 
         File fichero = new File("data/out/FichElementos.dat");
-        FileOutputStream fileout = new FileOutputStream(fichero,true);
+        FileOutputStream fileout = new FileOutputStream(fichero,false);
         ObjectOutputStream dataOS = new ObjectOutputStream(fileout);
 
         Iterator iterator = llistaelemento.iterator();
-        System.out.println(fichero.length());
         while (iterator.hasNext()){
             dataOS.writeObject(iterator.next());
+            System.out.println("Element guardat amb exit");
         }
-        System.out.println(fichero.length());
         dataOS.close();
     }
 
