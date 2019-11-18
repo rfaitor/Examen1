@@ -68,7 +68,7 @@ public class XMLclass {
                     if (ar.getNodeType() == Node.ELEMENT_NODE) {
                         Element element = (Element) ar;
 
-                        Elemento elemento = new Elemento(getNodo("id", element), getNodo("year", element),
+                        Elemento elemento = new Elemento(Integer.valueOf(getNodo("id", element)), getNodo("year", element),
                                 getNodo("season", element), getNodo("thumb", element));
                         System.out.println(elemento.toString());
 

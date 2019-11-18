@@ -45,10 +45,13 @@ public class Main {
                     thumb = scanner.nextLine();
 
                     try {
-                        llistaElemento.add(new Elemento(id, year, season, thumb));
+                        llistaElemento.add(new Elemento(Integer.valueOf(id), year, season, thumb));
                         System.out.println("l'element ha sigut afegit amb exit");
                         System.out.println("Presiona enter per continuar");
-                    }catch (Exception e) {
+                    } catch (NumberFormatException e){
+                        System.err.println("L'únic camp opicional és el thumb, la foto.");
+                        System.out.println("Presiona enter per continuar");
+                    } catch (Exception e) {
                         System.err.println(e.getMessage());
                         System.out.println("Presiona enter per continuar");
                     }

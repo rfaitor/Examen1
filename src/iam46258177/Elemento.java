@@ -9,7 +9,7 @@ public class Elemento implements Serializable {
     private String year, season, thumb;
     private SimpleDateFormat simpleDateFormat;
 
-    public Elemento(String id, String year, String season, String thumb) throws Exception {
+    public Elemento(int id, String year, String season, String thumb) throws Exception {
 
         try {
 
@@ -18,15 +18,17 @@ public class Elemento implements Serializable {
                 formatoFecha.setLenient(false);
                 formatoFecha.parse(year);
             }
-            if (!id.isEmpty()){
-                this.id = Integer.valueOf(id);
+            if (year.isEmpty()||season.isEmpty()){
+             throw new NumberFormatException();
             }
+
+            this.id = id;
             this.year = year;
             this.season = season;
             this.thumb = thumb;
 
         } catch (ParseException e) {
-            throw new Exception("Has introduit malament la data (\"yyyy/MM\")");
+            throw new ParseException("Has introduit malament la data (\"yyyy/MM\")",1);
         }
 
 
