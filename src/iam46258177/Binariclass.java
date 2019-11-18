@@ -27,18 +27,27 @@ public class Binariclass {
     public void llegirBinari() throws IOException {
         Elemento elemento;
         File fichero = new File("data/out/FichElementos.dat");
-        FileInputStream filein = new FileInputStream(fichero);
-        ObjectInputStream dataIS = new ObjectInputStream(filein);
 
-        try {
-            while (true) {
-                elemento = (Elemento) dataIS.readObject();
-                System.out.println(elemento.toString());
+
+        if (fichero.exists()) {
+            FileInputStream filein = new FileInputStream(fichero);
+            ObjectInputStream dataIS = new ObjectInputStream(filein);
+
+            try {
+                while (true) {
+                    elemento = (Elemento) dataIS.readObject();
+                    System.out.println(elemento.toString());
+                }
+            } catch (EOFException eo) {
+            } catch (StreamCorruptedException x) {
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
             }
-        }catch (EOFException eo) {}
-        catch (StreamCorruptedException x) {} catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            dataIS.close();
+        }else {
+            System.out.println("No existeix aquest fitxer");
+            System.out.println("Proba a afegir elements de memoria al fitxer");
         }
-        dataIS.close();
+
     }
 }

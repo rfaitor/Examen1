@@ -9,14 +9,18 @@ public class Elemento implements Serializable {
     private String year, season, thumb;
     private SimpleDateFormat simpleDateFormat;
 
-    public Elemento(int id, String year, String season, String thumb) throws Exception {
+    public Elemento(String id, String year, String season, String thumb) throws Exception {
 
         try {
 
-            SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM");
-            formatoFecha.setLenient(false);
-            formatoFecha.parse(year);
-            this.id = id;
+            if (!year.isEmpty()) {
+                SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM");
+                formatoFecha.setLenient(false);
+                formatoFecha.parse(year);
+            }
+            if (!id.isEmpty()){
+                this.id = Integer.valueOf(id);
+            }
             this.year = year;
             this.season = season;
             this.thumb = thumb;
@@ -62,6 +66,6 @@ public class Elemento implements Serializable {
 
     @Override
     public String toString() {
-        return "Foto: Id = " + id + " Year = " + year + " Season = "  + season + " Thumb = " + thumb;
+        return "Elemento:  Id = " + id + ",  Year = " + year + ",  Season = "  + season + ",  Thumb = " + thumb;
     }
 }
